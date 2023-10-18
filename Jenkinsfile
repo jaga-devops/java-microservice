@@ -1,4 +1,7 @@
 node {
+   tools {
+        maven 'local_maven'
+    }
    stage('Fetch changes') {
       git 'https://github.com/apssouza22/java-microservice.git'
    }
