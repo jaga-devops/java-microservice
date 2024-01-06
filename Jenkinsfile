@@ -20,7 +20,7 @@ pipeline {
             steps {
                  dir('api-gateway') {
                     sh 'mvn clean package'
-		    sh 'docker build -t api-test .'
+		    sh 'docker build -t api-testvnhv .'
                 }
             }
                 
