@@ -10,7 +10,7 @@ pipeline {
             steps {
                  dir('eureka-server') {
                     sh 'mvn clean package -Dmaven.test.skip=true'
-		    //sh 'docker build -t eureka-server .'
+		    sh 'docker build -t eureka-server .'
 
                 }
             }
@@ -19,8 +19,8 @@ pipeline {
 		stage('api-gateway') {
             steps {
                  dir('api-gateway') {
-                    sh 'mvn clean package'
-		    sh 'docker build -t api-testvnhv .'
+                    //sh 'mvn clean package'
+		    //sh 'docker build -t api-testvnhv .'
                 }
             }
                 
