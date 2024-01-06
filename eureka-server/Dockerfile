@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM openjdk:8
 
 COPY ./target/eureka-server-1.jar /app/eureka-server-1.jar
  
