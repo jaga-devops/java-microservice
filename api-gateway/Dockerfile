@@ -1,7 +1,5 @@
-FROM maven:3.8.4-jdk-11
-
-#COPY settings.xml /usr/share/maven/ref/
-COPY . /project/service-registry
-WORKDIR /project/service-registry
-RUN mvn clean package
-CMD java -jar target/api-gateway-0.0.1-SNAPSHOT.jar
+FROM ubuntu 
+RUN apt-get update
+RUN apt-get install openjdk-17-jdk
+COPY ./target/api-gateway-0.0.1-SNAPSHOT.jar /app/api-gateway-0.0.1-SNAPSHOT.jar
+RUN java -jar target/api-gateway-0.0.1-SNAPSHOT.jar
