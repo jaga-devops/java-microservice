@@ -10,7 +10,7 @@ pipeline {
             steps {
                  dir('eureka-server') {
                     sh 'mvn clean package -Dmaven.test.skip=true'
-					//sh 'docker build -t eureka-server .'
+		    sh 'docker build -t eureka-server .'
 
                 }
             }
