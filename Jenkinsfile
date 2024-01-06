@@ -1,12 +1,29 @@
-node {
+pipeline {
+    agent any
+ tools {
+        maven 'local_maven'
+    }
 
-   stage('Fetch changes') {
-      git 'https://github.com/apssouza22/java-microservice.git'
-   }
-   stage('Build images') {
-      sh "./package-projects.sh"
-   }
-   stage('Deploy ECS') {
-      sh "./aws-deploy.sh"
-   }
-}
+    stages {
+        
+        stage('api-gateway') {
+            steps {
+                 dir('api-gateway') {
+                    sh 'mvn clean package'
+                }
+            }
+                
+        }
+        stage('admin-server') {
+            steps {
+                 dir('admin-server') {
+                    sh 'mvn clean package -Dmaven.test.skip=true'
+
+                }
+            }
+                
+        }
+
+        
+        }
+    }
