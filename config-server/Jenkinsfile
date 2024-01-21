@@ -7,8 +7,8 @@ pipeline {
         stage('config-server') {
             steps {
 		    dir('config-server') {
-                 sh 'mvn clean package -Dmaven.test.skip=true'
-
+                 //sh 'mvn clean package -Dmaven.test.skip=true'
+		sh "mvn -f ./config-server/pom.xml  -Pdockerimage docker:build"
                 }
             }
 	}    
