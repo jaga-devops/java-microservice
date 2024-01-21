@@ -5,8 +5,8 @@ pipeline {
     }
 
     stages {
-        dir('eureka-server') {
         stage('eureka-server') {
+		dir('eureka-server') {
             steps {
                  sh 'mvn clean package -Dmaven.test.skip=true'
 
