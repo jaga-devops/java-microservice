@@ -3,11 +3,10 @@ pipeline {
  tools {
         maven 'maven'
     }
-
     stages {
         stage('config-server') {
-		dir('config-server') {
             steps {
+		    dir('config-server') {
                  sh 'mvn clean package -Dmaven.test.skip=true'
 
                 }
